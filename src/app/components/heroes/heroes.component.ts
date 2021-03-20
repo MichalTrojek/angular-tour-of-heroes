@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HEROES } from 'src/app/moct-heroes';
 import { Hero } from './interface/hero';
 
 @Component({
@@ -7,12 +8,15 @@ import { Hero } from './interface/hero';
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent implements OnInit {
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm',
-  };
+  heroes: Hero[] = HEROES;
+
+  selectedHero?: Hero;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSelect(hero: Hero) {
+    this.selectedHero = hero;
+  }
 }
